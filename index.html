@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Odilbek Numanjanov</title>
+<meta name="description" content="Odilbek Numanjanov — aloqa ma’lumotlari">
+<meta name="theme-color" content="#0B1220">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B1220; --surface:#141E33; --line:#25324d; --text:#EAF1FB; --muted:#93a3bd;
+  --accent:#5EE0C1; --accent2:#7C9CFF; --on-accent:#06251e;
+  --display:"Unbounded","Trebuchet MS",sans-serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){--bg:#EAF0F9;--surface:#fff;--line:#d5dfee;--text:#0B1220;--muted:#58698a;--accent:#0E8F77;--accent2:#3D5BD9;--on-accent:#fff}
+}
+:root[data-theme="light"]{--bg:#EAF0F9;--surface:#fff;--line:#d5dfee;--text:#0B1220;--muted:#58698a;--accent:#0E8F77;--accent2:#3D5BD9;--on-accent:#fff}
+:root[data-theme="dark"]{--bg:#0B1220;--surface:#141E33;--line:#25324d;--text:#EAF1FB;--muted:#93a3bd;--accent:#5EE0C1;--accent2:#7C9CFF;--on-accent:#06251e}
+
+*{box-sizing:border-box;margin:0}
+html{height:100%}
+body{
+  min-height:100%; font-family:var(--body); color:var(--text); background:var(--bg);
+  padding:max(20px,env(safe-area-inset-top)) 16px max(28px,env(safe-area-inset-bottom));
+  display:flex; justify-content:center; line-height:1.5;
+  background-image:
+    radial-gradient(60% 40% at 15% 0%, color-mix(in srgb,var(--accent2) 28%,transparent), transparent 70%),
+    radial-gradient(50% 35% at 100% 20%, color-mix(in srgb,var(--accent) 22%,transparent), transparent 70%);
+  background-attachment:fixed;
+}
+main{width:100%; max-width:440px}
+.top{display:flex; justify-content:space-between; align-items:center; margin-bottom:18px}
+.status{display:flex; align-items:center; gap:8px; font-size:13px; color:var(--muted)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.icon-btn{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer;display:grid;place-items:center}
+.icon-btn svg{width:19px;height:19px}
+
+/* Asosiy karta */
+.card{
+  position:relative; padding:28px 24px 24px; border-radius:28px; background:var(--surface);
+  border:1px solid var(--line); overflow:hidden; transform-style:preserve-3d;
+  transition:transform .15s ease-out;
+}
+.card::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(260px circle at var(--mx,70%) var(--my,0%), color-mix(in srgb,var(--accent) 24%,transparent), transparent 70%);
+}
+.avatar{
+  width:96px;height:96px;border-radius:30px; display:grid; place-items:center; position:relative;
+  font-family:var(--display); font-weight:800; font-size:34px; color:var(--on-accent);
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:30px}
+h1{font-family:var(--display); font-weight:800; font-size:clamp(25px,8vw,32px); line-height:1.12; margin-top:20px; letter-spacing:-.01em}
+.role{color:var(--accent); font-weight:600; margin-top:6px}
+.bio{color:var(--muted); margin-top:10px; max-width:34ch}
+
+.primary{
+  display:flex; align-items:center; justify-content:center; gap:10px; width:100%; margin-top:22px;
+  padding:16px; border-radius:16px; border:0; cursor:pointer; text-decoration:none;
+  font:800 16px var(--body); color:var(--on-accent);
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+}
+.primary svg{width:20px;height:20px}
+.primary:active{transform:scale(.98)}
+
+/* Havolalar */
+.links{display:grid; gap:10px; margin-top:14px; list-style:none; padding:0}
+.link{
+  display:flex; align-items:center; gap:14px; padding:14px 16px; border-radius:18px; text-decoration:none; color:var(--text);
+  background:var(--surface); border:1px solid var(--line); transition:border-color .2s, transform .2s;
+}
+.link:hover,.link:focus-visible{border-color:var(--c,var(--accent)); transform:translateX(3px)}
+.link .ic{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;flex:none;background:color-mix(in srgb,var(--c,var(--accent)) 16%,transparent);color:var(--c,var(--accent))}
+.link .ic svg{width:21px;height:21px}
+.link b{display:block;font-weight:800}
+.link small{color:var(--muted);font-size:13px}
+.row{display:flex;gap:8px}.row .link{flex:1;min-width:0}.copy{flex:none;font:600 13px var(--body);color:var(--text);border:1px solid var(--line);background:var(--surface);border-radius:18px;padding:0 16px;cursor:pointer}
+.link .go{margin-left:auto;color:var(--muted);width:18px;height:18px;flex:none}
+
+.share{display:flex;gap:10px;margin-top:14px}
+.share button{flex:1;padding:13px;border-radius:14px;border:1px solid var(--line);background:transparent;color:var(--text);font:600 14px var(--body);cursor:pointer}
+footer{text-align:center;color:var(--muted);font-size:12px;margin-top:22px}
+
+.toast{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translate(-50%,30px);opacity:0;background:var(--text);color:var(--bg);padding:11px 18px;border-radius:12px;font-weight:600;font-size:14px;transition:.25s;pointer-events:none}
+.toast.show{transform:translate(-50%,0);opacity:1}
+
+/* Sahifa ochilishidagi yagona harakat */
+.card{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(24px) scale(.97)}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <div class="status"><span class="dot"></span><span id="status">Aloqada</span></div>
+    <button class="icon-btn" id="theme" aria-label="Rejimni almashtirish">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+
+  <section class="card" id="card">
+    <div class="avatar" id="avatar"><span id="initials"></span></div>
+    <h1 id="name"></h1>
+    <p class="role" id="role"></p>
+    <p class="bio" id="bio"></p>
+    <a class="primary" id="save" href="#" role="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+      Kontaktlarga saqlash
+    </a>
+  </section>
+
+  <ul class="links" id="links"></ul>
+
+  <div class="share">
+    <button id="shareBtn">Ulashish</button>
+    <button id="copyUrl">Havolani nusxalash</button>
+  </div>
+  <footer id="foot"></footer>
+</main>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ============ SHU YERNI TAHRIRLANG ============
+   TODO bilan belgilangan maydonlar — vaqtincha namuna (placeholder). */
+const CONFIG = {
+  firstName: "Odilbek",
+  lastName: "Numanjanov",
+  role: "Kasb / lavozim",                       // TODO: haqiqiysini yozing
+  bio: "Bu yerga o‘zi haqida 1–2 gap yoziladi.", // TODO
+  photo: "photo.jpg",                             // rasm index.html bilan bir papkada bo‘lishi kerak
+  phone: "+996555828180",                         // TODO: raqamni tasdiqlang (davlat kodi!)
+  phoneShow: "0555 828 180",
+  instagram: "modeste_l7",
+  whatsapp: "996555828180",                       // TODO: WhatsApp raqami (+ belgisiz)
+  telegram: "username",                           // TODO
+  email: "example@mail.com",                      // TODO
+  address: "V.I. Lenina ko‘chasi, 146-uy",
+  city: "",                                       // TODO: shahar nomi (xarita aniq topishi uchun)
+  website: ""                                     // TODO: bo‘sh qoldirsangiz chiqmaydi
+};
+/* =============================================== */
+
+const C = CONFIG, $ = id => document.getElementById(id);
+const full = `${C.firstName} ${C.lastName}`;
+const ICON = {
+  phone:'<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>',
+  ig:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/>',
+  wa:'<path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.3-2-1-.8.7a4 4 0 0 1-1.8-1.8l.7-.8-1-2z"/>',
+  tg:'<path d="M21.5 3.5L2.8 10.8l5.4 2 2 6.2 3.2-3.8 4.9 3.6z"/><path d="M8.2 12.8l9.3-6.5"/>',
+  mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+  pin:'<path d="M12 21s7-6.2 7-11.5a7 7 0 0 0-14 0C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/>',
+  web:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>'
+};
+const svg = p => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
+
+// Sarlavha va asosiy ma’lumotlar
+document.title = `${full} — aloqa`;
+$("name").textContent = full;
+$("role").textContent = C.role;
+$("bio").textContent = C.bio;
+$("initials").textContent = C.firstName[0] + C.lastName[0];
+if (C.photo) { const i = new Image(); i.src = C.photo; i.alt = full; i.onload = () => $("avatar").appendChild(i); }
+$("foot").textContent = `© ${new Date().getFullYear()} ${full}`;
+
+// Havolalar ro‘yxati (bo‘sh maydonlar chiqmaydi)
+const mapQ = encodeURIComponent([C.address, C.city].filter(Boolean).join(", "));
+const items = [
+  {k:"phone", t:"Qo‘ng‘iroq qilish", s:C.phoneShow, h:`tel:${C.phone}`, c:"#5EE0C1", copy:C.phone},
+  {k:"ig", t:"Instagram", s:`@${C.instagram}`, h:`https://instagram.com/${C.instagram}`, c:"#E1306C"},
+  {k:"wa", t:"WhatsApp", s:"Xabar yozish", h:`https://wa.me/${C.whatsapp}`, c:"#25D366"},
+  {k:"tg", t:"Telegram", s:`@${C.telegram}`, h:`https://t.me/${C.telegram}`, c:"#2AABEE"},
+  {k:"mail", t:"Email", s:C.email, h:`mailto:${C.email}`, c:"#F5B942"},
+  {k:"pin", t:"Manzil", s:C.address, h:`https://www.google.com/maps/search/?api=1&query=${mapQ}`, c:"#FF6B6B"},
+  C.website && {k:"web", t:"Veb-sayt", s:C.website.replace(/^https?:\/\//,""), h:C.website, c:"#7C9CFF"}
+].filter(Boolean);
+
+$("links").innerHTML = items.map(x => `
+  <li class="row"><a class="link" style="--c:${x.c}" href="${x.h}" ${x.h.startsWith("http")?'target="_blank" rel="noopener"':""} ${x.k==="phone"?'data-call="1"':""}>
+    <span class="ic">${svg(ICON[x.k])}</span>
+    <span><b>${x.t}</b><small>${x.s}</small></span>
+    <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+  </a>${x.copy ? `<button class="copy" data-copy="${x.copy}" type="button" aria-label="Raqamni nusxalash">Nusxa</button>` : ""}</li>`).join("");
+
+// Toast
+let tt; const toast = m => { const t=$("toast"); t.textContent=m; t.classList.add("show"); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove("show"),1800); };
+const copy = async txt => { try { await navigator.clipboard.writeText(txt); toast("Nusxalandi"); } catch { toast("Nusxalab bo‘lmadi"); } };
+
+document.addEventListener("click", e => {
+  const call = e.target.closest("[data-call]");
+  if (call && !matchMedia("(pointer:coarse)").matches) { e.preventDefault(); copy(C.phone); return; }
+  const b = e.target.closest("[data-copy]");
+  if (b) { e.preventDefault(); copy(b.dataset.copy); }
+});
+
+// vCard (.vcf) — kontaktlarga saqlash
+$("save").addEventListener("click", e => {
+  e.preventDefault();
+  const v = ["BEGIN:VCARD","VERSION:3.0",
+    `N:${C.lastName};${C.firstName};;;`, `FN:${full}`,
+    C.role && `TITLE:${C.role}`,
+    `TEL;TYPE=CELL:${C.phone}`,
+    C.email && `EMAIL:${C.email}`,
+    `ADR;TYPE=HOME:;;${C.address};${C.city};;;`,
+    `URL:https://instagram.com/${C.instagram}`,
+    C.website && `URL:${C.website}`,
+    "END:VCARD"].filter(Boolean).join("\r\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([v], {type:"text/vcard"}));
+  a.download = `${C.firstName}-${C.lastName}.vcf`;
+  document.body.appendChild(a); a.click(); a.remove();
+  toast("Kontakt yuklab olindi");
+});
+
+// Ulashish
+$("shareBtn").addEventListener("click", async () => {
+  if (navigator.share) { try { await navigator.share({title:full, url:location.href}); } catch {} }
+  else copy(location.href);
+});
+$("copyUrl").addEventListener("click", () => copy(location.href));
+
+// Karta ustida yorug‘lik va engil og‘ish (faqat sichqoncha/touch harakatida)
+const card = $("card");
+const move = e => {
+  const p = e.touches ? e.touches[0] : e, r = card.getBoundingClientRect();
+  const x = (p.clientX - r.left) / r.width, y = (p.clientY - r.top) / r.height;
+  card.style.setProperty("--mx", x*100 + "%"); card.style.setProperty("--my", y*100 + "%");
+  card.style.transform = `perspective(900px) rotateX(${(.5-y)*5}deg) rotateY(${(x-.5)*5}deg)`;
+};
+card.addEventListener("pointermove", move);
+card.addEventListener("pointerleave", () => card.style.transform = "");
+
+// Kunning vaqtiga qarab holat yozuvi
+const h = new Date().getHours();
+$("status").textContent = h < 6 ? "Hozir dam olmoqda" : h < 12 ? "Xayrli tong" : h < 18 ? "Xayrli kun" : h < 23 ? "Xayrli kech" : "Hozir dam olmoqda";
+
+// Rejim tugmasi
+$("theme").addEventListener("click", () => {
+  const r = document.documentElement, dark = getComputedStyle(r).getPropertyValue("--bg").trim().toLowerCase() === "#0b1220";
+  r.dataset.theme = dark ? "light" : "dark";
+});
+</script>
+</body>
+</html>
